@@ -26,6 +26,23 @@ class Time:
         return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
 
 #
+# Frequency
+#
+
+class Frequency:
+    ORDER = ['hertz', 'kilohertz', 'megahertz', 'gigahertz']
+    MAGNITUDES = [1000, 1000, 1000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
 # Distance
 #
 

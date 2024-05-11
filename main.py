@@ -1,44 +1,4 @@
-from tkinter import Tk
-
-#
-# Usefull Functions
-#
-
-def get_dpi():
-    return Tk().winfo_fpixels('1i')
-
-def get_magnitude(From, To, Classification, Magnitudes):
-    # Index distance is the distance (in integer) from (From) to (To) values inside the ORDER list
-    index_distance = (Classification.index(From), Classification.index(To))
-
-    magnitude = 1
-
-    for value_magnitude in Magnitudes[index_distance[0]:index_distance[1]]:
-        magnitude *= value_magnitude
-
-    return magnitude
-
-def multiply_by_magnitude(order, magnitudes, Value, From, To):
-    # Check if the user is trying to convert a large unit to a small unit or vice versa
-    direction = order.index(To) - order.index(From)
-
-    if direction == 0:
-        # User is trying to convert ms to ms or seconds to seconds and vice versa
-        return Value # Value doesnt change since from and to are the same
-
-    # Magnitude is the value we have to multiply/divide the value with so that we will get the desired value
-    elif direction < 0:
-        magnitude = get_magnitude(From, To, order, magnitudes)
-        return Value * magnitude
-    elif direction > 0:
-        magnitude = get_magnitude(From, To, order, magnitudes)
-        return Value / magnitude
-
-def check_for_invalid_parameters(order, Value, From, To):
-    if type(Value) != int: raise ValueError('Invalid value:', Value)
-    if not order.__contains__(From): raise ValueError('Invalid unit of measurement:', From)
-    if not order.__contains__(To): raise ValueError('Invalid unit of measurement:', To)
-
+from usefull_functions import *
 
 
 # ###########################################################################################################
@@ -104,9 +64,9 @@ class Weight:
 #
 
 class Volume:
-    ORDER = ['cubic centimeter', 'milliliters', 'liters', 'gallons', 'cubic meters']
+    ORDER = ['cubic centimeter', 'milliliters', 'cubic inches', 'liters', 'gallons', 'cubic feet', 'cubic meters']
     # Btw, Cubic centimeter and milliliters are the same unit of measurement. Thats why the magnitude is 1! Cool fact, Am i right
-    MAGNITUDES = [1, 1000, 3.78541]
+    MAGNITUDES = [1, 16.387, 61.0237, 3.78541, 7.48052, 35.3147]
     
     def __init__(self, Value, From, To) -> None:
         check_for_invalid_parameters(self.ORDER, Value, From, To)
@@ -119,6 +79,99 @@ class Volume:
 
 # The user may not know that to measure liquids, You can just use volume. But for simplicity, Liquid and Volume classes do the same things but with different names.
 Liquid = Volume
+
+#
+# Area
+#
+
+class Area:
+    ORDER = ['square millimeters', 'square centimeters', 'square decimeters', 'square meters', *('square dekameters', 'acres'), *('square hectometer', 'hectares'), 'square kilometers']
+    MAGNITUDES = [100, 100, 100, 100, *(1, 100), *(1, 100)]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Pressure
+#
+
+class Pressure:
+    ORDER      = ['pascal', 'newton per square meter', 'millimeter of mercury', 'kilopascal', 'psi', 'bar', 'atmosphere', 'megapascal']
+    MAGNITUDES = [1, 133.322368421, 7.50062, 6.89476, 14.5038, 1.01325, 9.86923]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Energy
+#
+
+class Energy:
+    ORDER      = ['joules', 'foot pounds', 'calories', 'british thermal units', 'watt hours', 'kilowatt hours']
+    MAGNITUDES = [1.35581794833, 3.088, 252.164, 3.412142, 1000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Power.
+# Yes, power and energy are different
+#
+
+class Power:
+    ORDER      = ['watts', 'horsepower', 'kilowatts']
+    MAGNITUDES = [745.7, 1.341]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Speed
+#
+
+def auto_per_x(starting): return f"{starting} per second", f"{starting} per minute", f"{starting} per hour"
+def auto_magnitude(number): return 60, 60, number / 60 / 60
+
+class Speed:
+    ORDER = filter(auto_per_x, ['millimeters', 'centimeters', 'inches', 'feet', 'yards', 'meters', 'kilometers', 'miles'])
+    MAGNITUDES = filter(auto_magnitude, [10, 2.54, 12, 3, 1.093613299, 1000, 1.60934])
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+# We dont need this, Just clear this from memory immediately. No need to slow the library
+del auto_per_x
+del auto_magnitude
 
 #
 # Temperature
@@ -163,36 +216,3 @@ class Temperature:
             ToValue = self.C_to_K(ValueCelsius)
         
         return ToValue
-
-
-
-
-
-
-
-
-
-#
-# Import
-#
-
-def convert_time(Value, From, To):
-    # Check for invalid values
-    if type(Value) != int: raise ValueError('The first argument must be a number. Usage: (60, "seconds", "minutes")')
-    if type(From)  != str: raise ValueError('The second argument must be a string. Usage: (60, "seconds", "minutes")')
-    if type(To)    != str: raise ValueError('The third argument must be a string. Usage: (60, "seconds", "minutes")')
-    if not TIME_ORDER.__contains__(From): raise ValueError(f'Sorry, We dont support "{From}" yet. Usage: (60, "seconds", "minutes")')
-    if not TIME_ORDER.__contains__(To):   raise ValueError(f'Sorry, We dont support "{To}" yet. Usage: (60, "seconds", "minutes")')
-
-    return calculate(TIME_ORDER, TIME_MAGNITUDES, Value, From, To)
-
-# Usually, To convert something you can just multiply. But temperature is more complex
-def convert_temperature(Value: Int, From: Temperature, To: Time):
-    # Check for invalid values
-    if type(Value) != int: raise ValueError('The first argument must be a number. Usage: (60, "seconds", "minutes")')
-    if type(From)  != str: raise ValueError('The second argument must be a string. Usage: (60, "seconds", "minutes")')
-    if type(To)    != str: raise ValueError('The third argument must be a string. Usage: (60, "seconds", "minutes")')
-    if not TIME_ORDER.__contains__(From): raise ValueError(f'Sorry, We dont support "{From}" yet. Usage: (60, "seconds", "minutes")')
-    if not TIME_ORDER.__contains__(To):   raise ValueError(f'Sorry, We dont support "{To}" yet. Usage: (60, "seconds", "minutes")')
-
-    return calculate(TIME_ORDER, TIME_MAGNITUDES, Value, From, To)

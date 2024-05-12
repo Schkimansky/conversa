@@ -43,6 +43,57 @@ class Frequency:
         return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
 
 #
+# Ohm (Resistance)
+#
+
+class Ohm:
+    ORDER = ['microohms', 'millioohms', 'ohms', 'kiloohms', 'megaohms', 'gigaohms']
+    MAGNITUDES = [1000,      1000,       1000,     1000,      1000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Volt
+#
+
+class Volt:
+    ORDER = ['millivolts', 'microvolts', 'volts', 'kilovolts', 'megavolts', 'gigavolts']
+    MAGNITUDES = [1000,      1000,       1000,     1000,      1000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Ampere
+#
+
+class Ampere:
+    ORDER = ['microamperes', 'milliamperes', 'amperes', 'kiloamperes', 'megaamperes', 'gigaamperes']
+    MAGNITUDES = [1000, 1000, 1000, 1000, 1000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
 # Distance
 #
 

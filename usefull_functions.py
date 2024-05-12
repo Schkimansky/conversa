@@ -28,7 +28,7 @@ def multiply_by_magnitude(order, magnitudes, Value, From, To):
 
     # Magnitude is the value we have to multiply/divide the value with so that we will get the desired value
     elif direction < 0:
-        magnitude = get_magnitude(From, To, order, magnitudes)
+        magnitude = get_magnitude(To, From, order, magnitudes)
         return Value * magnitude
     elif direction > 0:
         magnitude = get_magnitude(From, To, order, magnitudes)

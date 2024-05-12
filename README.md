@@ -9,3 +9,6 @@ For example, You can use the "convert_time" function to convert seconds to minut
 ```python
 convert_time(90,  From="seconds",  To="minutes")
 ```
+
+# In Beta
+Library under construction. If you notice any errors between conversions or a commonly used unit isnt supported, Please open an issue!

@@ -77,6 +77,57 @@ class Volt:
         return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
 
 #
+# Data
+#
+
+class Data:
+    ORDER      = ['bits', 'bytes', 'kilobytes', 'megabytes', 'gigabytes', 'terabytes', 'petabytes']
+    MAGNITUDES = [8,       1000,      1000,        1000,        1000,        1000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Concentration
+#
+
+class Concentration:
+    ORDER      = ['parts per million', 'percentage']
+    MAGNITUDES = [10000]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
+# Angle
+#
+
+class Angle:
+    ORDER      = ['radians', 'degrees', 'gradians']
+    MAGNITUDES = [57.295779513, 1.111111111]
+
+    def __init__(self, Value, From, To) -> None:
+        check_for_invalid_parameters(self.ORDER, Value, From, To)
+
+        self.Value = Value
+        self.From = From
+        self.To = To
+    def convert(self):
+        return multiply_by_magnitude(self.ORDER, self.MAGNITUDES, self.Value, self.From, self.To)
+
+#
 # Ampere
 #
 

@@ -208,10 +208,6 @@ def Speed(Value, From, To):
 
     return multiply_by_magnitude(ORDER, MAGNITUDES, Value, From, To)
 
-# We dont need this, Just clear this from memory immediately. No need to slow the library
-del auto_per_x
-del auto_magnitude
-
 #
 # Temperature
 #

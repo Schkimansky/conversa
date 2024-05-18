@@ -1,11 +1,6 @@
-from tkinter import Tk
-import wool
 #
 # Usefull Functions
 #
-
-def get_dpi():
-    return Tk().winfo_fpixels('1i')
 
 def get_magnitude(From, To, Classification, Magnitudes):
     # Index distance is the distance (in integer) from (From) to (To) values inside the ORDER list
@@ -38,8 +33,3 @@ def check_for_invalid_parameters(order, Value, From, To):
     if type(Value) != int: raise ValueError('Invalid value:', Value)
     if not order.__contains__(From): raise ValueError('Invalid unit of measurement:', From)
     if not order.__contains__(To): raise ValueError('Invalid unit of measurement:', To)
-
-
-if __name__ == '__main__':
-    dll = wool.compile_rust_folder('rust')
-    print(dll.time(1, 'seconds', 'milliseconds'))

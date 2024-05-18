@@ -1,1 +1,0 @@
-/home/thearchcoder/Documents/Programming/Python/conversa/rust/target/release/librust.so: /home/thearchcoder/Documents/Programming/Python/conversa/rust/src/lib.rs /home/thearchcoder/Documents/Programming/Python/conversa/rust/src/usefull_functions.rs

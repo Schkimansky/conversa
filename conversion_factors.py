@@ -11,7 +11,7 @@ from usefull_functions import *
 # Time
 #
 
-def Time(Value, From, To):
+def time(Value, From, To):
     # Some units are complicated to convert. But most of them are easy, Such as time. To convert, Multiply by 1000 to convert milliseconds to seconds, And so on. You only need to multiply to convert stuff here.
     ORDER = ['milliseconds', 'seconds', 'minutes', 'hours', 'days', 'years', 'decades']
     MAGNITUDES = [1000, 60, 60, 24, 365, 10] # you need 1000 milliseconds to make 1 second, And 60 seconds to make 1 minute, And so on.
@@ -24,7 +24,7 @@ def Time(Value, From, To):
 # Frequency
 #
 
-def Frequency(Value, From, To):
+def frequency(Value, From, To):
     ORDER = ['hertz', 'kilohertz', 'megahertz', 'gigahertz']
     MAGNITUDES = [1000, 1000, 1000]
 
@@ -36,7 +36,7 @@ def Frequency(Value, From, To):
 # Ohm (Resistance)
 #
 
-def Ohm(Value, From, To):
+def ohm(Value, From, To):
     ORDER = ['microohms', 'millioohms', 'ohms', 'kiloohms', 'megaohms', 'gigaohms']
     MAGNITUDES = [1000,      1000,       1000,     1000,      1000]
 
@@ -48,7 +48,7 @@ def Ohm(Value, From, To):
 # Volt
 #
 
-def Volt(Value, From, To):
+def volt(Value, From, To):
     ORDER = ['millivolts', 'microvolts', 'volts', 'kilovolts', 'megavolts', 'gigavolts']
     MAGNITUDES = [1000,      1000,       1000,     1000,      1000]
 
@@ -60,7 +60,7 @@ def Volt(Value, From, To):
 # Data
 #
 
-def Data(Value, From, To):
+def data(Value, From, To):
     ORDER      = ['bits', 'bytes', 'kilobytes', 'megabytes', 'gigabytes', 'terabytes', 'petabytes']
     MAGNITUDES = [8,       1000,      1000,        1000,        1000,        1000]
 
@@ -72,7 +72,7 @@ def Data(Value, From, To):
 # Concentration
 #
 
-def Concentration(Value, From, To):
+def concentration(Value, From, To):
     ORDER      = ['parts per million', 'percentage']
     MAGNITUDES = [10000]
 
@@ -84,7 +84,7 @@ def Concentration(Value, From, To):
 # Angle
 #
 
-def Angle(Value, From, To):
+def angle(Value, From, To):
     ORDER      = ['radians', 'degrees', 'gradians']
     MAGNITUDES = [57.295779513, 1.111111111]
 
@@ -96,7 +96,7 @@ def Angle(Value, From, To):
 # Ampere
 #
 
-def Ampere(Value, From, To):
+def ampere(Value, From, To):
     ORDER = ['microamperes', 'milliamperes', 'amperes', 'kiloamperes', 'megaamperes', 'gigaamperes']
     MAGNITUDES = [1000, 1000, 1000, 1000, 1000]
 
@@ -108,7 +108,7 @@ def Ampere(Value, From, To):
 # Distance
 #
 
-def Distance(Value, From, To):
+def distance(Value, From, To):
     ORDER = ['millimeters', 'centimeters', 'inches', 'feet', 'yards', 'meters', 'kilometers', 'miles']
     MAGNITUDES = [10, 2.54, 12, 3, 1.093613299, 1000, 1.60934]
     
@@ -120,7 +120,7 @@ def Distance(Value, From, To):
 # Weight
 #
 
-def Weight(Value, From, To):
+def weight(Value, From, To):
     ORDER = ['milligrams', 'grams', 'ounces', 'pounds', 'kilograms', 'tons', 'kilotons']
     MAGNITUDES = [1000, 28.3495, 28.3495, 2.20462, 1000, 1000]
     
@@ -132,7 +132,7 @@ def Weight(Value, From, To):
 # Volume
 #
 
-def Volume(Value, From, To):
+def volume(Value, From, To):
     ORDER = ['cubic centimeter', 'milliliters', 'cubic inches', 'liters', 'gallons', 'cubic feet', 'cubic meters']
     # Btw, Cubic centimeter and milliliters are the same unit of measurement. Thats why the magnitude is 1! Cool fact, Am i right
     MAGNITUDES = [1, 16.387, 61.0237, 3.78541, 7.48052, 35.3147]
@@ -142,13 +142,13 @@ def Volume(Value, From, To):
     return multiply_by_magnitude(ORDER, MAGNITUDES, Value, From, To)
 
 # The user may not know that to measure liquids, You can just use volume. But for simplicity, Liquid and Volume classes do the same things but with different names.
-Liquid = Volume
+liquid = volume
 
 #
 # Area
 #
 
-def Area(Value, From, To):
+def area(Value, From, To):
     ORDER = ['square millimeters', 'square centimeters', 'square decimeters', 'square meters', *('square dekameters', 'acres'), *('square hectometer', 'hectares'), 'square kilometers']
     MAGNITUDES = [100, 100, 100, 100, *(1, 100), *(1, 100)]
 
@@ -160,7 +160,7 @@ def Area(Value, From, To):
 # Pressure
 #
 
-def Pressure(Value, From, To):
+def pressure(Value, From, To):
     ORDER      = ['pascal', 'newton per square meter', 'millimeter of mercury', 'kilopascal', 'psi', 'bar', 'atmosphere', 'megapascal']
     MAGNITUDES = [1, 133.322368421, 7.50062, 6.89476, 14.5038, 1.01325, 9.86923]
 
@@ -172,7 +172,7 @@ def Pressure(Value, From, To):
 # Energy
 #
 
-def Energy(Value, From, To):
+def energy(Value, From, To):
     ORDER      = ['joules', 'foot pounds', 'calories', 'british thermal units', 'watt hours', 'kilowatt hours']
     MAGNITUDES = [1.35581794833, 3.088, 252.164, 3.412142, 1000]
 
@@ -185,7 +185,7 @@ def Energy(Value, From, To):
 # Yes, power and energy are different
 #
 
-def Power(Value, From, To):
+def power(Value, From, To):
     ORDER      = ['watts', 'horsepower', 'kilowatts']
     MAGNITUDES = [745.7, 1.341]
 
@@ -200,7 +200,7 @@ def Power(Value, From, To):
 def auto_per_x(starting): return f"{starting} per second", f"{starting} per minute", f"{starting} per hour"
 def auto_magnitude(number): return 60, 60, number / 60 / 60
 
-def Speed(Value, From, To):
+def speed(Value, From, To):
     ORDER = filter(auto_per_x, ['millimeters', 'centimeters', 'inches', 'feet', 'yards', 'meters', 'kilometers', 'miles'])
     MAGNITUDES = filter(auto_magnitude, [10, 2.54, 12, 3, 1.093613299, 1000, 1.60934])
 
@@ -212,7 +212,7 @@ def Speed(Value, From, To):
 # Temperature
 #
 
-def Temperature(Value, From, To):
+def temperature(Value, From, To):
     ORDER = ['fahrenheit', 'celsius', 'kelvin']
     # No magnitude, Instead converting temperature is pretty complex. The way i convert this is different.
 
@@ -245,4 +245,3 @@ def Temperature(Value, From, To):
         ToValue = C_to_K(ValueCelsius)
     
     return ToValue
-

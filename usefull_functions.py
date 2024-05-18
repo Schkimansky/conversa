@@ -24,10 +24,10 @@ def multiply_by_magnitude(order, magnitudes, Value, From, To):
     # Magnitude is the value we have to multiply/divide the value with so that we will get the desired value
     elif direction < 0:
         magnitude = get_magnitude(To, From, order, magnitudes)
-        return Value * magnitude
+        return round((Value * magnitude), 5)
     elif direction > 0:
         magnitude = get_magnitude(From, To, order, magnitudes)
-        return Value / magnitude
+        return round((Value / magnitude), 5)
 
 def check_for_invalid_parameters(order, Value, From, To):
     if not type(Value) in [int, float]: raise ValueError('Invalid value:', Value)

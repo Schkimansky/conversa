@@ -40,8 +40,8 @@ AMPERE_MAGNITUDES        = [1000,               1000,         1000,        1000,
 DISTANCE_ORDER           = ['millimeters', 'centimeters', 'inches', 'feet',       'yards',      'meters', 'kilometers', 'miles']
 DISTANCE_MAGNITUDES      = [10,                2.54,         12,       3,   1.0936132983377078,   1000,     1.60934]
 
-WEIGHT_ORDER             = ['milligrams', 'grams',  'ounces',  'pounds', 'kilograms', 'tons', 'kilotons']
-WEIGHT_MAGNITUDES        = [1000,         28.3495,  28.3495,   2.20462,     1000,      1000]
+WEIGHT_ORDER             = ['milligrams',   'grams',    'ounces',      'pounds',       'kilograms', 'tons', 'kilotons']
+WEIGHT_MAGNITUDES        = [1000,         28.349523125,    16,    2.2046226218487755,     1000,      1000]
 
 VOLUME_ORDER             = ['cubic centimeter', 'milliliters', 'cubic inches', 'liters', 'gallons', 'cubic feet', 'cubic meters']
 VOLUME_MAGNITUDES        = [1,                     16.387,        61.0237,      3.78541,  7.48052,    35.3147] # Btw, Cubic centimeter and milliliters are the same unit of measurement. Thats why the magnitude is 1! Cool fact, Am i right
@@ -112,7 +112,6 @@ def weight(Value, From, To):
 
 def volume(Value, From, To):
     check_for_invalid_parameters(VOLUME_ORDER, Value, From, To)
-
     return multiply_by_magnitude(VOLUME_ORDER, VOLUME_MAGNITUDES, Value, From, To)
 
 # The user may not know that to measure liquids, You can just use volume. But for simplicity, Liquid and Volume functions do the same things but with different names.
@@ -139,7 +138,7 @@ def power(Value, From, To):
 def temperature(Value, From, To):
     check_for_invalid_parameters(TEMPERATURE_ORDER, Value, From, To)
 
-    def F_to_C(F): return (F - 32) + (5/9)
+    def F_to_C(F): return (F - 32) * (9/5)
     def K_to_C(K): return K - 273.15
     def C_to_F(C): return (C * (9 / 5)) + 32
     def C_to_K(C): return C + 273.15
@@ -149,7 +148,7 @@ def temperature(Value, From, To):
 
     # First, Convert value to celsius.
     ValueCelsius = None
-    if From == 'farenheit':
+    if From == 'fahrenheit':
         ValueCelsius = F_to_C(Value)
     elif From == 'celsius':
         ValueCelsius = Value # No need to convert, Since we are trying to convert value to celsius.
@@ -158,7 +157,7 @@ def temperature(Value, From, To):
     
     # Then convert value in celsius to what the user wants. This way, it covers all possible ways the user would wanna convert something to the other. And also because i dont have to write a function for each possible parameter, eg. (C_TO_F, C_TO_K, F_TO_K, F_TO_C, and more). I only gotta write 4 functions with the aproach i am using
     ToValue = None
-    if To == 'farenheit':
+    if To == 'fahrenheit':
         ToValue = C_to_F(ValueCelsius)
     elif To == 'celsius':
         ToValue = ValueCelsius # already celsius

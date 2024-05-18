@@ -1,5 +1,5 @@
-all = ['time', 'frequency', 'ohm', 'volt', 'data', 'concentration', 'angle', 'ampere', 'distance', 'weight', 'volume', 'liquid', 'area', 'pressure', 'energy', 'power', 'speed', 'temperature']
+__all__ = ['time', 'frequency', 'ohm', 'volt', 'data', 'concentration', 'angle', 'ampere', 'distance', 'weight', 'volume', 'liquid', 'area', 'pressure', 'energy', 'power', 'speed', 'temperature']
 
-from conversion_factors import *
+from .main import time, frequency, ohm, volt, data, concentration, angle, ampere, distance, weight, volume, liquid, area, pressure, energy, power, speed, temperature
 
 _ = time, frequency, ohm, volt, data, concentration, angle, ampere, distance, weight, volume, liquid, area, pressure, energy, power, speed, temperature

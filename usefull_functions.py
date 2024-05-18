@@ -30,6 +30,6 @@ def multiply_by_magnitude(order, magnitudes, Value, From, To):
         return Value / magnitude
 
 def check_for_invalid_parameters(order, Value, From, To):
-    if type(Value) != int: raise ValueError('Invalid value:', Value)
+    if not type(Value) in [int, float]: raise ValueError('Invalid value:', Value)
     if not order.__contains__(From): raise ValueError('Invalid unit of measurement:', From)
     if not order.__contains__(To): raise ValueError('Invalid unit of measurement:', To)

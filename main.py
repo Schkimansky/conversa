@@ -43,17 +43,17 @@ DISTANCE_MAGNITUDES      = [10,                2.54,         12,       3,   1.09
 WEIGHT_ORDER             = ['milligrams',   'grams',    'ounces',      'pounds',       'kilograms', 'tons', 'kilotons']
 WEIGHT_MAGNITUDES        = [1000,         28.349523125,    16,    2.2046226218487755,     1000,      1000]
 
-VOLUME_ORDER             = ['cubic centimeter', 'milliliters', 'cubic inches', 'liters', 'gallons', 'cubic feet', 'cubic meters']
-VOLUME_MAGNITUDES        = [1,                     16.387,        61.0237,      3.78541,  7.48052,    35.3147] # Btw, Cubic centimeter and milliliters are the same unit of measurement. Thats why the magnitude is 1! Cool fact, Am i right
+VOLUME_ORDER             = ['cubic centimeter', 'milliliters',   'cubic inches',      'liters',         'gallons',          'cubic feet',  'cubic meters']
+VOLUME_MAGNITUDES        = [1,                    16.387064,    61.02374409473229,   3.785411784,   7.48051948051948,    35.31466672148859] # Btw, Cubic centimeter and milliliters are the same unit of measurement. Thats why the magnitude is 1! Cool fact, Am i right
 
 AREA_ORDER               = ['square millimeters', 'square centimeters', 'square decimeters', 'square meters',   'square dekameters', 'acres',  'square hectometer',  'hectares', 'square kilometers']
 AREA_MAGNITUDES          = [100,                          100,                100,                100,                   1,            100,             1,              100]
 
-PRESSURE_ORDER           = ['pascal', 'newton per square meter', 'millimeter of mercury', 'kilopascal',   'psi',    'bar',   'atmosphere', 'megapascal']
-PRESSURE_MAGNITUDES      = [1,             133.322368421,                7.50062,           6.89476,     14.5038,  1.01325,    9.86923]
+PRESSURE_ORDER           = ['pascals', 'newton per square meter', 'millimeter of mercury', 'kilopascal',   'psi',    'bar',   'atmospheres', 'megapascal']
+PRESSURE_MAGNITUDES      = [1,             133.322368421,                7.50062,           6.89476,     14.5038,  1.01325,     9.86923]
 
-ENERGY_ORDER             = ['joules',       'foot pounds', 'calories', 'british thermal units', 'watt hours', 'kilowatt hours']
-ENERGY_MAGNITUDES        = [1.35581794833,      3.088,      252.164,          3.412142,            1000]
+ENERGY_ORDER             = ['joules',       'foot pounds',      'calories',        'kilojoules',     'british thermal units',  'watt hours', 'kilowatt hours']
+ENERGY_MAGNITUDES        = [1.35581794833,      3.088,      239.0057361376673,    1.05505585262,        3.4121416331279415,        1000]
 
 POWER_ORDER              = ['watts', 'horsepower', 'kilowatts']
 POWER_MAGNITUDES         = [745.7,      1.341]

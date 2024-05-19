@@ -7,8 +7,7 @@ https://www.patreon.com/Schkimansky
 This is a easy to use python library that allows you to convert units of measurement to others. 
 For example, You can use the "convert_time" function to convert seconds to minutes. 
 ```python
-convert_time(90,  From="seconds",  To="minutes")
+time(90,  From="seconds",  To="minutes")
 ```
 
 # Documentation
-Full documentation is available at:

@@ -1,7 +1,5 @@
 from .usefull_functions import *
 
-print_order_functions = []
-
 # ######################################################################################################### #
 #                                                                                                           #
 #  Orders and Magnitudes. If you wanna contribute, You usually do it here. Everything else is handled       #
@@ -63,6 +61,11 @@ TEMPERATURE_ORDER        = ['fahrenheit', 'celsius', 'kelvin']
 
 LIQUID_ORDER = VOLUME_ORDER
 LIQUID_MAGNITUDES = VOLUME_MAGNITUDES
+
+all_unit_orders = {'time': TIME_ORDER, 'frequency': FREQUENCY_ORDER, 'ohm': OHM_ORDER, 'volt': VOLT_ORDER, 'data': DATA_ORDER, 'concentration': CONCENTRATION_ORDER, 'angle': ANGLE_ORDER, 'ampere': AMPERE_ORDER, 'distance': DISTANCE_ORDER, 'weight': WEIGHT_ORDER, 'volume': VOLUME_ORDER, 'area': AREA_ORDER, 'pressure': PRESSURE_ORDER, 'energy': ENERGY_ORDER, 'power': POWER_ORDER, 'temperature': TEMPERATURE_ORDER, 'liquid': LIQUID_ORDER}
+
+def get_supported_units(unit_type):
+    return all_unit_orders[unit_type]
 
 # ######################################################################################################### #
 #                                                                                                           #

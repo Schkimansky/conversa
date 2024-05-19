@@ -19,10 +19,10 @@ TIME_MAGNITUDES          = [1000,              60,        60,       24,     365,
 FREQUENCY_ORDER          = ['hertz', 'kilohertz', 'megahertz', 'gigahertz']
 FREQUENCY_MAGNITUDES     = [1000,       1000,        1000]
 
-OHM_ORDER                = ['microohms', 'millioohms', 'ohms', 'kiloohms', 'megaohms', 'gigaohms']
+OHM_ORDER                = ['microhms', 'milliohms', 'ohms', 'kilohms', 'megaohms', 'gigaohms']
 OHM_MAGNITUDES           = [1000,           1000,       1000,     1000,      1000]
 
-VOLT_ORDER               = ['millivolts', 'microvolts', 'volts', 'kilovolts', 'megavolts', 'gigavolts']
+VOLT_ORDER               = ['microvolts', 'millivolts', 'volts', 'kilovolts', 'megavolts', 'gigavolts']
 VOLT_MAGNITUDES          = [1000,            1000,       1000,      1000,        1000]
 
 DATA_ORDER               = ['bits', 'bytes', 'kilobytes', 'megabytes', 'gigabytes', 'terabytes', 'petabytes']
@@ -31,8 +31,8 @@ DATA_MAGNITUDES          = [8,       1000,      1000,        1000,        1000, 
 CONCENTRATION_ORDER      = ['parts per million', 'percentage']
 CONCENTRATION_MAGNITUDES = [10000]
 
-ANGLE_ORDER              = ['radians',     'degrees', 'gradians']
-ANGLE_MAGNITUDES         = [57.295779513, 1.111111111]
+ANGLE_ORDER              = ['gradians',            'degrees',      'radians']
+ANGLE_MAGNITUDES         = [1.1111111300618674, 57.29577951322445]
 
 AMPERE_ORDER             = ['microamperes', 'milliamperes', 'amperes', 'kiloamperes', 'megaamperes', 'gigaamperes']
 AMPERE_MAGNITUDES        = [1000,               1000,         1000,        1000,          1000]
@@ -46,8 +46,8 @@ WEIGHT_MAGNITUDES        = [1000,         28.349523125,    16,    2.204622621848
 VOLUME_ORDER             = ['cubic centimeter', 'milliliters',   'cubic inches',      'liters',         'gallons',          'cubic feet',  'cubic meters']
 VOLUME_MAGNITUDES        = [1,                    16.387064,    61.02374409473229,   3.785411784,   7.48051948051948,    35.31466672148859] # Btw, Cubic centimeter and milliliters are the same unit of measurement. Thats why the magnitude is 1! Cool fact, Am i right
 
-AREA_ORDER               = ['square millimeters', 'square centimeters', 'square decimeters', 'square meters',   'square dekameters', 'acres',  'square hectometer',  'hectares', 'square kilometers']
-AREA_MAGNITUDES          = [100,                          100,                100,                100,                   1,            100,             1,              100]
+AREA_ORDER               = ['square millimeters', 'square centimeters', 'square decimeters', 'square meters',   'square decameters',        'acres',          'square hectometer',  'hectares', 'square kilometers']
+AREA_MAGNITUDES          = [100,                          100,                100,                100,              40.468564224,      2.471053814671653,             1,               100]
 
 PRESSURE_ORDER           = ['pascals', 'newton per square meter', 'millimeter of mercury', 'kilopascal',   'psi',    'bar',   'atmospheres', 'megapascal']
 PRESSURE_MAGNITUDES      = [1,             133.322368421,                7.50062,           6.89476,     14.5038,  1.01325,     9.86923]

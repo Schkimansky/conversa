@@ -24,7 +24,7 @@ setup(
     install_requires=[],
     keywords=['python', 'units', 'conversion', 'convert', 'time', 'distance', 'length'],
     classifiers=[
-        "Development Status :: First Stable Release",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",

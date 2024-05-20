@@ -18,4 +18,4 @@ pip install conversa
 ```
 
 # Documentation
-You can download the full documentation at: https://github.com/Schkimansky/conversa/blob/main/Documentation.pdf
+You can download the full documentation at: https://github.com/Schkimansky/conversa/blob/main/Conversa.pdf

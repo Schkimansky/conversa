@@ -13,3 +13,5 @@ print(result)
 ```
 
 # Documentation
+You can download the full documentation at:
+Github: https://github.com/Schkimansky/conversa/blob/main/Documentation.pdf

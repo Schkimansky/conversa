@@ -12,5 +12,10 @@ result = conversa.time(90,  From="seconds",  To="minutes") # Output will be 1.5 
 print(result)
 ```
 
+# Installation
+```bash
+pip install conversa
+```
+
 # Documentation
 You can download the full documentation at: https://github.com/Schkimansky/conversa/blob/main/Documentation.pdf
